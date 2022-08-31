@@ -7,7 +7,9 @@ const photo_urls = [
 const del_titles = [
   "날씨",
   "포토",
+  "사진",
   "부고",
+  "장례",
 ];
 
 const checkDandok = (title) => {
@@ -18,7 +20,7 @@ const checkDandok = (title) => {
 };
 
 const checkArticle = (news, title, url) => {
-  const titleHead = title.text.match(/\[[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|A-Z|-]*\]/);
+  const titleHead = title.text.match(/\[[\S|\s]*\]/);
   if (titleHead) {
     for (let i = 0; i < del_titles.length; i++) {
       if (titleHead[0].includes(del_titles[i])) {

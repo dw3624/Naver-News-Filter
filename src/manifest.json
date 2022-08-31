@@ -1,7 +1,7 @@
 {
   "name": "Naver News Filter",
   "short_name": "nnf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "icons": {
     "16": "asset/icon16.png",
