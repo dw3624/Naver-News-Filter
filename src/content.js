@@ -9,6 +9,7 @@ const del_titles = [
   "포토",
   "사진",
   "부고",
+  "부음",
   "장례",
 ];
 
@@ -40,9 +41,12 @@ const checkArticle = (news, title, url) => {
 const createKwTag = (news, info, title) => {
   let pressKw = `${title.text}(${info}, )`;
   let copyKw = document.createElement("a");
-  copyKw.innerText = "→기사제목(언론사) 복사하기"
-  copyKw.style.color = "#0c43b7";
-  
+  copyKw.innerText = "📋 기사제목(언론사) 복사"
+  copyKw.style = `
+    color: #808080;
+    text-decoration: none;
+    padding-left: 0.8rem;
+  `;
   news.querySelector("div.info_group").appendChild(copyKw);
   copyKw.addEventListener("click", () => {
     navigator.clipboard.writeText(pressKw)
@@ -50,13 +54,17 @@ const createKwTag = (news, info, title) => {
   copyKw.addEventListener("mouseenter", () => {
     copyKw.style = `
       cursor: pointer;
-      color: #0c43b7;
+      color: #808080;
       text-decoration: underline;
-    `    
+      padding-left: 0.8rem;
+    `
   });
   copyKw.addEventListener("mouseleave", () => {
-    copyKw.style.color = "#0c43b7";
-    copyKw.style.textDecoration = "none";
+    copyKw.style = `
+      color: #808080;
+      text-decoration: none;
+      padding-left: 0.8rem;
+    `
   });
 }
 
@@ -66,7 +74,6 @@ window.onload = () => {
     let info = news.querySelector("a.info.press").text.replace("언론사 선정", "");
     let title = news.querySelector("a.news_tit");
     let url = news.querySelector("a.news_tit");
-    // let desc = news.querySelector("a.api_txt_lines.dsc_txt_wrap");
     checkDandok(title);
     checkArticle(news, title, url);
     createKwTag(news, info, title);

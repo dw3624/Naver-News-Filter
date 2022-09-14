@@ -73,9 +73,13 @@ a 태그를 만들어 DOM에 추가한 뒤 해당 태그 클릭시 양식에 맞
 const createKwTag = (news, info, title) => {
   let pressKw = `${title.text}(${info}, )`;
   let copyKw = document.createElement("a");
-  copyKw.innerText = "→기사제목(언론사) 복사하기"
-  copyKw.style.color = "#0c43b7";
-  
+  copyKw.innerText = "📋 기사제목(언론사) 복사"
+  copyKw.style = `
+    color: #808080;
+    text-decoration: none;
+    padding-left: 0.8rem;
+  `;
+
   news.querySelector("div.info_group").appendChild(copyKw);
   copyKw.addEventListener("click", () => {
     navigator.clipboard.writeText(pressKw)
@@ -83,13 +87,29 @@ const createKwTag = (news, info, title) => {
   copyKw.addEventListener("mouseenter", () => {
     copyKw.style = `
       cursor: pointer;
-      color: #0c43b7;
+      color: #808080;
       text-decoration: underline;
-    `    
+      padding-left: 0.8rem;
+    `
   });
   copyKw.addEventListener("mouseleave", () => {
-    copyKw.style.color = "#0c43b7";
-    copyKw.style.textDecoration = "none";
+    copyKw.style = `
+      color: #808080;
+      text-decoration: none;
+      padding-left: 0.8rem;
+    `
   });
 }
 ```
+
+# 버전 설명
+### v1.0.0
+- 크롬 익스텐션 최초 업로드
+
+### v1.0.1
+- 날씨, 포토, 사진, 부음, 부고, 장례 키워드 포함 뉴스 필터링
+- 뉴스1, 뉴시스, 연합뉴스 포토뉴스 필터링
+- `[]` 내 문자 추출 후 패턴 매칭하는 방식으로 변경
+- 기사제목 복사 링크 색, 아이콘 변경
+- 마이너 버그 수정
+  - 마우스 호버 시 글씨강조가 마우스 이동 시 해제되도록 수정
