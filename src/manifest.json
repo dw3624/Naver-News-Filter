@@ -1,14 +1,14 @@
 {
-  "name": "Naver News Filter",
-  "short_name": "nnf",
-  "version": "1.0.1",
+  "name": "네이버 포토뉴스 필터",
+  "short_name": "naver photo news filter",
+  "version": "1.0.2",
   "manifest_version": 3,
   "icons": {
     "16": "asset/icon16.png",
     "48": "asset/icon48.png",
     "128": "asset/icon128.png"
   },
-  "description": "naver 뉴스 검색에서 포토뉴스를 숨기고 단독뉴스를 강조합니다.",
+  "description": "네이버 뉴스 검색에서 포토뉴스를 숨기고 단독뉴스를 강조합니다.",
   "content_scripts": [{
     "matches": ["https://search.naver.com/search.naver?*where=news*"],
     "js": [
