@@ -55,6 +55,19 @@ const createKwTag = (news, press, title) => {
   });
 }
 
+
+const buttonPrev = document.querySelector('.sc_page a.btn_prev')
+const buttonNext = document.querySelector('.sc_page a.btn_next')
+document.onkeydown = (e) => {
+  if(e.key == "ArrowLeft" && e.ctrlKey == true) {
+    buttonPrev.click()
+  }
+  if(e.key == "ArrowRight" && e.ctrlKey == true) {
+    buttonNext.click()
+  }
+}
+
+
 window.onload = () => {
   let news_arr = document.querySelectorAll("div.news_wrap.api_ani_send");
   news_arr.forEach((news) => {
